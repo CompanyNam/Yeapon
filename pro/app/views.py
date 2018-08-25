@@ -7,7 +7,7 @@ from django.db.models import Q
 # Create your views here.
 
 def index_view(request):
-    print("ywwedenfvfvfvgtbnhjmk,ol,imuytvcexwxecrvbyujiop[/p.,munbtvcexwzecrvtyujjdwendp")
+    print("uje ogrenduh")
     form_list=PostFilter(request.GET or None)
     post = Post.objects.all()
     query=request.GET.get('q')
