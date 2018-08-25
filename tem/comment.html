@@ -1,0 +1,10 @@
+
+{% load static %}
+<form method="POST">
+{%csrf_token%}
+{%for field in form%}
+    <label>{{field.label_tag}}</label>
+    {{field}}<br>
+{%endfor%}
+<input type="submit" value="Yorum ekle">
+</form>

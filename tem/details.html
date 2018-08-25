@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <div class="container" style="margin-top:40px;">
+
+    <div class="post">
+        <div class="container" style="margin:auto; text-align: center;">
+
+            {%if post.image%}
+            <h1 class="posttitle" style="text-align:center;">{{post.title}}</h1><small>{{post.publishing_date|timesince}}</small><br>
+
+            <img src="{{post.image.url}}" class="img" >
+            {%else%}
+
+            <h1 class="posttitle" style="text-align:center;">{{post.title}}</h1><small>{{post.publishing_date|timesince}}(Post whithout image)</small><br>
+
+
+            {%endif%}
+            <p class="postcontent">{{post.content|safe|linebreaks|truncatechars:100}}</p><br>
+
+            <div style="margin-top:20px;;padding:0;"><a href="{{post.index_url}}"><button class="button"><p class="Butword">index</p></button></a></div><br><br><br>
+            {% include 'comment.html' %}
+            {% for comment in post.comments.all%}
+                <h4>{{comment.name}}<small>{{comment.created_date|timesince}}</small></h4>
+                <p>{{comment.content}}</p>
+
+            {% endfor %}
+
+            <br>
+
+
+
+        </div>
+    </div>
+    </div>
+{%endblock%}
